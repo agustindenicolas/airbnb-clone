@@ -27,13 +27,13 @@ interface PropType {
 
 const Home: NextPage<PropType> = ({ exploreData, cardsData }) => {
   return (
-    <div className=''>
+    <div>
       <Head>
         <title>Airbnb Clone</title>
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <Header />
+      <Header placeholder={undefined} />
       <Banner />
 
       <main className='max-w-7xl mx-auto px-8 sm:px-16'>
@@ -43,7 +43,7 @@ const Home: NextPage<PropType> = ({ exploreData, cardsData }) => {
           {/* Pull some data from server - API Endopints */}
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
             {exploreData?.map(({ img, distance, location }) => (
-              <h1>
+              <h1 key={img}>
                 <SmallCard
                   key={img}
                   img={img}
